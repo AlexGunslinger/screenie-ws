@@ -1,0 +1,8 @@
+AddType application/x-httpd-php .html .php .js .css .xml
+AddType text/javascript .js
+#AddType text/css .css
+
+#RewriteEngine On
+#RewriteBase /
+#RewriteCond %{HTTP_HOST} ^(www)\. [NC]
+#RewriteRule ^(.*)$ http://screenie.com/$1 [L,R=301]

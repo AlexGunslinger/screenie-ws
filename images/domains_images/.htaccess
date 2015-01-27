@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /images/domains_images
+RewriteRule ^([0-9]+)\.(.*)$ index.php?id=$1 [L]

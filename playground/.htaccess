@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin"
+AuthUserFile "/home/screenmx/.htpasswds/public_html/playground/passwd"
+require valid-user

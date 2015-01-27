@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+
+function getDigits(s){
+	
+	var digitsOnly = s.replace(/[^\d]/g, "");
+	document.getElementById('resume_result').value = digitsOnly;
+	//alert(digitsOnly);
+	
+}
+
+function getAlpha(s){
+	
+	var alphaOnly = s.replace(/[^\D]/g, "");
+	document.getElementById('resume_result').value = alphaOnly;
+	//alert(alphaOnly);
+	
+}
+
+
+</script>
+
+</head>
+<body>
+
+<div style="width:1000px;">
+
+	<h1>JavaScript Regex</h1>
+	<form id="demoMatch" name="demoMatch" action="javascript:void(0)">
+	
+	<h3>Source Code</h3>
+	<textarea name="resume_text" id="resume_text" style="width:400px;height:400px; float:left;"></textarea>
+	<textarea name="resume_result" id="resume_result" style="width:400px;height:400px; float:right;"></textarea>
+	
+	<div style="clear:both;"></div>
+
+	<br /><br />
+	<div style="height:40px;width:100px;cursor:pointer;border:1px solid black;background-color:green;color:white;" onclick="getDigits(document.getElementById('resume_text').value);">Get Digits From Textarea</div>
+	<br />
+	<div style="height:40px;width:100px;cursor:pointer;border:1px solid black;background-color:red;color:white;" onclick="getAlpha(document.getElementById('resume_text').value);">Get Alpha From Textarea</div>
+
+	</form>
+
+	<br />
+	<br />
+
+	<a href="http://www.w3schools.com/jsref/jsref_obj_regexp.asp" target="_blank">http://www.w3schools.com/jsref/jsref_obj_regexp.asp</a>
+
+</div>
+</body>
+</html>
