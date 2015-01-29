@@ -2,6 +2,7 @@
 session_start();
 $META_TITLE = 'Seminarios en Línea Gratuitos';
 // $META_DESCRIPTION = "Provide SEO friendly description here!";
+// comentario para probar
 include_once 'includes/header.php';
 $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 ?>
@@ -14,7 +15,7 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 						
 						<h1 style="font-size:42px;"><?php echo $PAGE_TITLE; ?></h1>
 	
-						<p><strong><u>Expositora - Brenda Manjarrez</u></strong></p>
+						<p><strong><u>Expositoras - Brenda Manjarrez</u></strong></p>
 																
 						<ul>
 							<li>Licenciada en Lingüística con Énfasis en Didáctica del Idioma Inglés de la UANL.</li>
@@ -198,7 +199,7 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 								<td style="width:250px;">
 									<p>Los retos de RRHH en los siguientes años
 									<br>6 de febrero de 2015
-									<br>10AM</p>
+									<br>11AM</p>
 								</td>
 
 							</tr>
