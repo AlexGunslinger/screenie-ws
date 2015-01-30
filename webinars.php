@@ -2,7 +2,7 @@
 session_start();
 $META_TITLE = 'Seminarios en Línea Gratuitos';
 // $META_DESCRIPTION = "Provide SEO friendly description here!";
-// comentario para probar
+
 include_once 'includes/header.php';
 $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 ?>
@@ -15,7 +15,7 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 						
 						<h1 style="font-size:42px;"><?php echo $PAGE_TITLE; ?></h1>
 	
-						<p><strong><u>Expositoras - Brenda Manjarrez</u></strong></p>
+						<p><strong><u>Expositora - Brenda Manjarrez</u></strong></p>
 																
 						<ul>
 							<li>Licenciada en Lingüística con Énfasis en Didáctica del Idioma Inglés de la UANL.</li>
