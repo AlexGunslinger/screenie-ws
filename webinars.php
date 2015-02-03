@@ -199,7 +199,7 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 								<td style="width:250px;">
 									<p>Los retos de RRHH en los siguientes años
 									<br>6 de febrero de 2015
-									<br>11AM</p>
+									<br>11:30AM</p>
 								</td>
 
 							</tr>
