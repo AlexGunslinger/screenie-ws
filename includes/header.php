@@ -41,6 +41,7 @@ $domain = explode(".",$url);
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" href="chosen.css" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

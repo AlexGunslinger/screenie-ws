@@ -46,16 +46,16 @@ Number of Employees: $_POST[employees] \n
 How did you hear about us? $_POST[hear] \n 
 Website: $_POST[website] \n 
 Are you a candidate: $are_you_a_candidate \n";
-
-		$headers = 'From: ' . $_POST[email] . "\r\n" .
-			'Reply-To: support@screenie.com' . "\r\n" .
-			'X-Mailer: PHP/' . phpversion();
 	
-		mail($to, $subject, $message, $headers);
+		$from = "soporte@screenie.com";
+		$fromname = "Screenie";
 	
+		//mail($to, $subject, $message, $headers);
+		sendEmailFrom($to, $from, $fromname, $subject, $message);
+		
 		//Mail to New User
 		$to      = $_POST[email];
-		$subject = "Welcome to Screenie";
+		$subject = "¡Bienvenido a Screenie!";
 		$message = "Hola $_POST[first_name],
 		
 ¡Bienvenido a Screenie!
@@ -68,11 +68,8 @@ Contáctanos si tienes alguna pregunta sobre la plataforma.
 El Equipo Screenie MX
 soporte@screenie.com";
 		
-			$headers = "From: soporte@screenie.com \r\n" .
-				'Reply-To: soporte@screenie.com' . "\r\n" .
-				'X-Mailer: PHP/' . phpversion();
-		
-			mail($to, $subject, $message, $headers);
+			//mail($to, $subject, $message, $headers);
+			sendEmailFrom($to, $from, $fromname, $subject, $message);
 			
 			$trial_thanks_set = 1;
 		
