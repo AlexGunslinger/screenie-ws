@@ -68,7 +68,7 @@ if($connectme == "yes"){
 	}
 	
 	function sendEmailFrom($to, $from, $fromname, $subject, $message) {
-	 
+
 		$url = 'http://sendgrid.com/';
 		$user = 'screenie';
 		$pass = 'screen2o1o'; 

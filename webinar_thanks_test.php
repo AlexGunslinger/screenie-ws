@@ -43,18 +43,16 @@
 			//insert into participant
 
 			$series_start="2015_02_06"; // TODO:ask what is this for
-
-		
 			
 			$dt= DATE('Y-d-m H:i:s');
 			
-			mysql_query("INSERT INTO `webinar_signups` (`id`,`series_start`,`name`,`email`,`phone`,`employees`,`hear`,`person_title`,`company_name`,`website`,`ip_address`,`dt`,`webinar_id`,`hire_number`) VALUES (null,'".$series_start."','$_POST[first_name] $_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[employees]','$_POST[hear]','$_POST[person_title]','$_POST[company_name]','$_POST[website]','" . $_SERVER['REMOTE_ADDR'] ."','".$dt."','".$id."','$_POST[hire_number]')");
 
 
 			//send mails
 			if($id == 2338912283539017217)
 			{ //reclutamiento y selecion
 			
+			$webinar_description="Reclutamiento y Seleccion GX";
 			$subject = "Seminario Certificado de Mejores Prácticas de Reclutamiento y Selección - Screenie";
 		
 			$message = "$_POST[first_name],
@@ -91,7 +89,7 @@
 		if($id == 6303047525857154306)
 		{ //redes sociales
 			
-		
+			$webinar_description="Redes Sociales GX";
 			$subject = "Seminario Certificado de Reclutamiento en Redes Sociales - Screenie";
 		
 			$message = "$_POST[first_name],
@@ -124,7 +122,7 @@
 		if($id == 3857612720791850497) //retos
 		{
 
-		
+			$webinar_description="Retos GX";
 			$subject = "Plática: Los retos de RRHH en los siguientes años - Screenie";
 		
 			$message = "$_POST[first_name],
@@ -146,8 +144,7 @@ Brenda y el equipo de Screenie";
 			sendEmailFrom($to, "brenda@screenie.com", "Brenda Manjarrez", $subject, $message);
 		
 		}
-
-
+			mysql_query("INSERT INTO `webinar_signups` (`id`,`series_start`,`name`,`email`,`phone`,`employees`,`hear`,`person_title`,`company_name`,`website`,`ip_address`,`dt`,`webinar_id`,`hire_number`,`webinar_description`) VALUES (null,'".$series_start."','$_POST[first_name] $_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[employees]','$_POST[hear]','$_POST[person_title]','$_POST[company_name]','$_POST[website]','" . $_SERVER['REMOTE_ADDR'] ."','".$dt."','".$id."','$_POST[hire_number]','".$webinar_description."')");
 		} //end foreach 
 		// end register
 
@@ -165,13 +162,10 @@ Brenda y el equipo de Screenie";
 		Number of Employees: $_POST[employees] \n 
 		Title: $_POST[person_title] \n 
 		How did you hear about us? $_POST[hear] \n
-		Webinar:  ********************";
+		Webinar: ".$webinar_description;
 
-		$headers = 'From: Screenie <' . $_POST[email] . ">\r\n" .
-			'Reply-To: brenda@screenie.com' . "\r\n" .
-			'X-Mailer: PHP/' . phpversion();
-	
-		mail($to, $subject, $message, $headers);
+		sendEmailFrom($to, "webinar_signups@screenie.com", "Webinar signups", $subject, $message);
+
 		
 
 			include_once 'includes/header.php';
