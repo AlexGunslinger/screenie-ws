@@ -1,120 +1,131 @@
-<?
+
+
+<?php
+
+
+	include("citrix.php");
+	$citrix = new Citrix('gzAWtNEXYm0ezvwFZqKIA93bk6sV8bmg');
+	$citrix->set_organizer_key('3925441588578560262'); 
+	$citrix->set_access_token('KODYDDNTWaQGR4DABq9I4vphFJwe');
+
 	
-	if(!empty($_POST[email]) && ($_POST[simple_math] == 7)){
-	
+	$webinar_id=$_POST['webinar_id']; //multiple select 
+
+	$to=$_POST[email];
+
+
+	if(!empty($_POST[email]) && ($_POST[simple_math] == 7) && 10==strlen($_POST[phone])) //if valid
+	{
+
 		$connectme = "yes";
 		include("includes/cons.php");
 		include("includes/functions.php");
-	
-		//Mail to New User
-		$to      = $_POST[email];
-		
-		if($_POST[recruitment] == "1"){
-		
-			mysql_query("INSERT INTO `webinar_signups` 
-			(`id`,`request_type`,series_start,`name`,`email`,`phone`,`employees`,`hear`,`person_title`,`company_name`,`website`,`ip_address`,`dt`) 
-			VALUES 
-			(null,'$_POST[request_type]','2014_11_05','$_POST[first_name] $_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[employees]','$_POST[hear]','$_POST[person_title]','$_POST[company_name]','$_POST[website]','" . $_SERVER['REMOTE_ADDR'] . "',NOW())");
-	
-		
+
+			//register in webinar
+			foreach ( $webinar_id as $webinar => $id) 
+		{
+			
+			//Add user to webinar
+			try
+			{
+				$response = $citrix->citrixonline_create_registrant_of_webinar($id, $data = array('first_name' => $_POST[first_name], 'last_name' => $_POST[last_name], 'email'=>$_POST[email])) ;
+				$registration_key= $response['registrantKey'];
+				$join_url= $response['joinUrl'];
+				$description= $response['description'];
+				
+			}	
+			catch (Exception $e) 
+			{	
+				//Error in the registration or the webinar doesnt exist
+			}
+
+
+			//insert into participant
+
+			 // fecha webinar
+			
+			$dt= DATE('Y-d-m H:i:s');
+			
+
+
+			//send mails
+			if($id == 2305285921240175361)
+			{ //reclutamiento y selecion
+			$series_start="2015_04_08";
+			$webinar_description="MP_G5";
 			$subject = "Seminario Certificado de Mejores Prácticas de Reclutamiento y Selección - Screenie";
 		
 			$message = "$_POST[first_name],
 		
-Gracias por registrarte para tomar el Seminario Gratuito en Línea de Certificación de Mejores Prácticas de Reclutamiento y Selección. Tu registro es válido para los siguientes módulos:
+			Gracias por registrarte para tomar el Seminario Gratuito en Línea de Certificación de Mejores Prácticas de Reclutamiento y Selección. Tu registro es válido para los siguientes módulos:
 
-4 de febrero de 2015 – Módulo 1. ¿Qué busco?
+			8 de abril de 2015 – Módulo 1. ¿Qué busco?
 
-18 de febrero de 2015 – Módulo 2. ¿Dónde lo busco?
+			22 de abril de 2015 – Módulo 2. ¿Dónde lo busco?
 
-4 de marzo de 2015 – Módulo 3 – ¿Cómo lo evalúo?
+			6 de mayo de 2015 – Módulo 3 – ¿Cómo lo evalúo?
 
-18 de marzo de 2015 – Módulo 4 – ¿Qué herramientas puedo usar?
+			20 de mayo de 2015 – Módulo 4 – ¿Qué herramientas puedo usar?
 
-Todos los módulos se llevarán a cabo a las 11am, hora de la Cd. de México.
+			Todos los módulos se llevarán a cabo a las 11am, hora de la Cd. de México.
 
-Para poder ingresar al Seminario en Línea, requieres una liga única y personal. Obténla en:
+			Ingresa al seminario en linea en $join_url
 
-https://attendee.gotowebinar.com/register/2338912283539017217
-
-Webinar ID: 138-869-587
-
-Te recordamos verificar los requerimientos del sistema para poder participar sin problemas. Y si tienes cualquier duda o requieres más información, puedes visitar la liga: http://bit.ly/1nrQIJx
+			Te recordamos verificar los requerimientos del sistema para poder participar sin problemas. Y si tienes cualquier duda o requieres más información, puedes visitar la liga: http://bit.ly/1nrQIJx
 
 
+			Gracias,
 
+			Brenda y el equipo de Screenie
 
-Gracias,
+			brenda@screenie.com";
 
-Brenda y el equipo de Screenie
-
-brenda@screenie.com";
-
-		$recruitment_response = "Yes";
-
+		
 		sendEmailFrom($to, "brenda@screenie.com", "Brenda Manjarrez", $subject, $message);
-		
-		}else{
-		
-			$recruitment_response= "No";
-		
+
+
 		}
 		
-		if($_POST[social] == "1"){
-		
-			mysql_query("INSERT INTO `webinar_signups` 
-			(`id`,`request_type`,series_start,`name`,`email`,`phone`,`employees`,`hear`,`person_title`,`company_name`,`website`,`ip_address`,`dt`) 
-			VALUES 
-			(null,'$_POST[request_type]','2014_10_29','$_POST[first_name] $_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[employees]','$_POST[hear]','$_POST[person_title]','$_POST[company_name]','$_POST[website]','" . $_SERVER['REMOTE_ADDR'] . "',NOW())");
+		if($id == 3876110904843731457)
+		{ //redes sociales
 			
+			$series_start="2015_04_15";
+			$webinar_description="RS_G3";
 			$subject = "Seminario Certificado de Reclutamiento en Redes Sociales - Screenie";
 		
 			$message = "$_POST[first_name],
 		
-Gracias por registrarte para tomar el Seminario Gratuito en Línea de Certificación de de Reclutamiento en Redes Sociales. Tu registro es válido para los siguientes módulos:
+			Gracias por registrarte para tomar el Seminario Gratuito en Línea de Certificación de de Reclutamiento en Redes Sociales. Tu registro es válido para los siguientes módulos:
 
-11 de febrero de 2015 – Módulo 1. ¿Qué es reclutamiento 2.0?
+			15 de abril de 2015 – Módulo 1. ¿Qué es reclutamiento 2.0?
 
-25 de febrero de 2015 – Módulo 2. Mejores prácticas para el reclutamiento en LinkedIn
+			29 de abril de 2015 – Módulo 2. Mejores prácticas para el reclutamiento en LinkedIn
 
-11 de marzo de 2015 – Módulo 3. Mejores prácticas para el reclutamiento en Facebook
+			13 de mayo de 2015 – Módulo 3. Mejores prácticas para el reclutamiento en Facebook
 
-25 de marzo de 2015 – Módulo 4. Mejores prácticas para otras redes y reclutamiento 3.0
+			20 de mayo de 2015 – Módulo 4. Mejores prácticas para otras redes y reclutamiento 3.0
 
-Todos los módulos se llevarán a cabo a las 11am, hora de la Cd. de México.
+			Todos los módulos se llevarán a cabo a las 11am, hora de la Cd. de México.
 
-Para poder ingresar al Seminario en Línea, requieres una liga única y personal. Obténla en:
+			Ingresa al seminario en linea en $join_url
 
-https://attendee.gotowebinar.com/register/6303047525857154306
+			Te recordamos verificar los requerimientos del sistema para poder participar sin problemas. Y si tienes cualquier duda o requieres más información, puedes visitar la liga: http://bit.ly/1nrQIJx
 
-Webinar ID: 159-920-691
+			Gracias,
 
-Te recordamos verificar los requerimientos del sistema para poder participar sin problemas. Y si tienes cualquier duda o requieres más información, puedes visitar la liga: http://bit.ly/1nrQIJx
+			Brenda y el equipo de Screenie";
 
-
-
-
-Gracias,
-
-Brenda y el equipo de Screenie";
-
-			$social_response= "Yes";
 
 			sendEmailFrom($to, "brenda@screenie.com", "Brenda Manjarrez", $subject, $message);
 		
-		}else{
-		
-			$social_response= "No";
-		
 		}
 
-		if($_POST[rrhh] == "1"){
-		
-			mysql_query("INSERT INTO `webinar_signups` 
-			(`id`,`request_type`,series_start,`name`,`email`,`phone`,`employees`,`hear`,`person_title`,`company_name`,`website`,`ip_address`,`dt`) 
-			VALUES 
-			(null,'$_POST[request_type]','2015_02_06','$_POST[first_name] $_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[employees]','$_POST[hear]','$_POST[person_title]','$_POST[company_name]','$_POST[website]','" . $_SERVER['REMOTE_ADDR'] . "',NOW())");
-			
+		//espacio para platica
+/*
+		if($id == 3876110904843731457) //retos
+		{
+
+			$webinar_description="RS_G3";
 			$subject = "Plática: Los retos de RRHH en los siguientes años - Screenie";
 		
 			$message = "$_POST[first_name],
@@ -123,61 +134,57 @@ Gracias por registrarte para la plática 'Los retos de RRHH en los siguientes a�
 
 La plática se llevara a cabo el 6 de febrero del 2015 a las 10am, hora de la Cd. de México.
 
-Para poder ingresar al Seminario en Línea, requieres una liga única y personal. Obténla en:
-
-https://attendee.gotowebinar.com/register/3857612720791850497
-
-Webinar ID: 121-147-107
+Ingresa al seminario en linea en $join_url
 
 Te recordamos verificar los requerimientos del sistema para poder participar sin problemas. Y si tienes cualquier duda o requieres más información, puedes visitar la liga: http://bit.ly/1nrQIJx
-
-
 
 
 Gracias,
 
 Brenda y el equipo de Screenie";
 
-			$rrhh_response= "Yes";
 
 			sendEmailFrom($to, "brenda@screenie.com", "Brenda Manjarrez", $subject, $message);
 		
-		}else{
-		
-			$rrhh_response= "No";
-		
 		}
+		*/
+			mysql_query("INSERT INTO `webinar_signups` (`id`,`series_start`,`name`,`email`,`phone`,`employees`,`hear`,`person_title`,`company_name`,`website`,`ip_address`,`dt`,`webinar_id`,`hire_number`,`webinar_description`) VALUES (null,'".$series_start."','$_POST[first_name] $_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[employees]','$_POST[hear]','$_POST[person_title]','$_POST[company_name]','$_POST[website]','" . $_SERVER['REMOTE_ADDR'] ."','".$dt."','".$id."','$_POST[hire_number]','".$webinar_description."')");
+		} //end foreach 
+		// end register
 
+	
+		//Mail to New User
+		$to      = $_POST[email];
+
+		
 		//Mail to Screenie
 		$to      = 'brenda@screenie.com';
 		$subject = "Webinar Signup";
 		$message = "Name: $_POST[first_name] $_POST[last_name] \n 
-Email: $_POST[email] \n 
-Phone: $_POST[phone] \n 
-Number of Employees: $_POST[employees] \n 
-Title: $_POST[person_title] \n 
-How did you hear about us? $_POST[hear] \n 
-Certificado de Mejores Prácticas de Reclutamiento y Selección: $recruitment_response \n
-Certificado de Reclutamiento en Redes Sociales: $social_response \n
-Plática: Los retos de RRHH en los siguientes años: $rrhh_response \n";
+		Email: $_POST[email] \n 
+		Phone: $_POST[phone] \n 
+		Number of Employees: $_POST[employees] \n 
+		Title: $_POST[person_title] \n 
+		How did you hear about us? $_POST[hear] \n
+		Webinar: ".$webinar_description;
 
-		$headers = 'From: Screenie <' . $_POST[email] . ">\r\n" .
-			'Reply-To: brenda@screenie.com' . "\r\n" .
-			'X-Mailer: PHP/' . phpversion();
-	
-		mail($to, $subject, $message, $headers);
+		sendEmailFrom($to, "webinar_signups@screenie.com", "Webinar signups", $subject, $message);
+
 		
-		
-			$META_TITLE = 'Seminarios en Línea Gratuitos';
+
 			include_once 'includes/header.php';
 			$PAGE_TITLE = "Seminarios en Línea Gratuitos";
 			
 			mysql_close($link);
 			
-		}else{
-		
-			header("location: webinars.php");
-			exit;
+		}
+		else{
+			
+				if($_POST[simple_math] !== 7)
+				header("location: webinars.php?wm=1");
+				if(10!==strlen($_POST[phone]))
+				header("location: webinars.php?wp=1");
+				exit;
 		
 		}
 
@@ -197,3 +204,4 @@ Plática: Los retos de RRHH en los siguientes años: $rrhh_response \n";
 <?php
 include_once 'includes/footer.php';
 ?>
+		

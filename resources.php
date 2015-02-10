@@ -36,6 +36,13 @@ $PAGE_TITLE = "Recursos";
 					<li><a href="recursos/Video_Webinar_Reclutamiento_Redes_Sociales_Modulo_4.mov" target="_blank">Video Webinar Reclutamiento Redes Sociales Módulo 4</a></li>
 					</ol>
 
+					<h3>Pl&aacute;tica: Los retos de RRHH en los pr&oacute;ximos a&ntilde;os</h3>
+					<ol>
+					<li><a href="recursos/Video_Platica_Los_retos_de_Recursos_Humanos_en_los_proximos_años.mov" target="_blank">Video: Pl&aacute;tica: Los retos de RRHH en los pr&oacute;ximos a&ntilde;os</a></li>
+					<li><a href="recursos/Retos_de_Recurso_Humanos_en_los_proximos.pptx" target="_blank">Presentaci&oacute;n: Pl&aacute;tica: Los retos de RRHH en los pr&oacute;ximos a&ntilde;os</a></li>
+					</ol>
+					
+
 					<h3>Screenie</h3>
 					<ol>
 					<li><a href="recursos/Plantilla_Descripcion_de_Puesto.doc" target="_blank">Plantilla Descripción de Puesto</a></li>

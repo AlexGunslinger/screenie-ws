@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $META_TITLE = 'Seminarios en Línea Gratuitos';
@@ -6,6 +7,14 @@ $META_TITLE = 'Seminarios en Línea Gratuitos';
 include_once 'includes/header.php';
 $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 ?>
+
+  <style type="text/css" media="all">
+    /* fix rtl for demo */
+    .chosen-rtl .chosen-drop { left: -9000px; }
+    .chosen-container{width:100% !important; }
+  </style>
+
+
 <script type="text/javascript" src="/js/js.js"></script>
 <!-- Section -->
 			<div class="inner-center section">
@@ -64,13 +73,13 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 								
 								<td style="width:250px;border-right:1px solid #548dd4;">
 									<p>Módulo 1.  ¿Qué busco?
-									<br />4 de febrero de 2015
+									<br />8 de abril de 2015
 									<br />11AM</p>
 								</td>
 							
 								<td style="width:250px;padding-left:5px;">
 									<p>Módulo 2. ¿Dónde lo busco?
-									<br />18 de febrero de 2015
+									<br />22 de abril de 2015
 									<br />11AM</p>
 								</td>
 						
@@ -80,13 +89,13 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 								
 								<td style="width:250px;border-right:1px solid #548dd4;padding-top:5px;">
 									<p>Módulo 3. ¿Cómo evalúo?
-									<br />4 de marzo de 2015
+									<br />6 de mayo de 2015
 									<br />11AM</p>
 								</td>
 							
 								<td style="width:250px;padding-top:5px;padding-left:5px;">
 									<p>Módulo 4. ¿Qué herramientas usar?
-									<br />18 de marzo de 2015
+									<br />20 de mayo de 2015
 									<br />11AM</p>
 								</td>
 						
@@ -132,13 +141,13 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 								
 								<td style="width:250px;border-right:1px solid #548dd4;">
 									<p>Módulo 1. ¿Qué es reclutamiento 2.0?
-									<br />11 de febrero de 2015
+									<br />15 de abril de 2015
 									<br />11AM</p>
 								</td>
 							
 								<td style="width:250px;padding-left:5px;">
 									<p>Módulo 2. Mejores prácticas para el reclutamiento en LinkedIn
-									<br />25 de febrero de 2015
+									<br />29 de abril de 2015
 									<br />11AM</p>
 								</td>
 						
@@ -148,13 +157,13 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 								
 								<td style="width:250px;border-right:1px solid #548dd4;padding-top:5px;">
 									<p>Módulo 3. Mejores prácticas para el reclutamiento en Facebook
-									<br />11 de marzo de 2015
+									<br />13 de mayo de 2015
 									<br />11AM</p>
 								</td>
 							
 								<td style="width:250px;padding-top:5px;padding-left:5px;">
 									<p>Módulo 4. Mejores prácticas para otras redes y reclutamiento 3.0
-									<br />25 de marzo de 2015 
+									<br />27 de mayo de 2015 
 									<br />11AM</p>
 								</td>
 						
@@ -176,49 +185,15 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 
 						<br />
 						
-						<h2 style="font-size:20px;"><u><strong>Plática: Los retos de RRHH en los siguientes años</strong></u></h2>
-						
-						<p>Ponente: Ing. Eduardo de la Garza Zamarrón, presidente de la AMEDIRH 2015-2016</p>
-
-						<p>Eduardo de la Garza, es el presidente actual de la Asociación Mexicana en Dirección de Recursos Humanos. </p>
-
-						<p>
-							Comenzó su carrera profesional hace más de 30 años y desde entonces, ha trabajado en diversas áreas de Recursos Humanos. Es Ingeniero Industrial, con estudios de Maestría en Administración y Especialidad en Recursos Humanos y Productividad. Ha trabajado para grandes corporaciones en México y actualmente, se desempeña como Vicepresidente Senior de Recursos Humanos a nivel Latinoamérica, además de su responsabilidad en AMEDIRH. Es nuestro invitado especial para compartir con la comunidad de Recursos Humanos de Screenie, su visión de lo que serán los retos a los que nos enfrentaremos en los siguientes años. 
-						</p>
-																		
-						<h3 style="font-size:18px;"><u>Calendarización</u></h3>
-												
-						<table style="width:500px;">
-						
-							<tr style="border-top:1px solid #548dd4;">
-								<td colspan="2">&nbsp;</td>
-							</tr>
-						
-							<tr style="border-top:1px solid #548dd4;">
-								
-								<td style="width:250px;">
-									<p>Los retos de RRHH en los siguientes años
-									<br>6 de febrero de 2015
-									<br>11:30AM</p>
-								</td>
-
-							</tr>
-
-							<tr style="border-bottom:1px solid #548dd4;">
-								<td colspan="2">&nbsp;</td>
-							</tr>
-						
-						</table>
-
-						<br />
 
 					</div>
 					
 					<div style="width:280px;float:right;border:1px solid black;padding-left:20px;">
 					
 						<!-- Form -->
-						
 						<h2>Registro</h2>
+						<?php if(isset($_GET['wm'])){ echo "</br><label style='color:red'>No se pudo completar la inscripci&oacute;n: compruebe su respuesta de 3 + 4.</label>"; } ?>
+						<?php if(isset($_GET['wp'])){ echo "</br><label style='color:red'>No se pudo completar la inscripci&oacute;n: compruebe su tel&eacute;fono</label>"; } ?>
 
 						<form role="form" class="g-col-8" style="width:90%;" method="POST" action="/webinar_thanks.php" id="signupForm" enctype="multipart/form-data">
 							<div class="form-group">
@@ -230,16 +205,28 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 								<input type="text" id="last_name" name="last_name" class="form-control" placeholder="Apellidos" required>
 							</div>
 							<div class="form-group">
-								<label for="email">Correo electrónico</label>
-								<input type="email" id="email" name="email" class="form-control" placeholder="youremail@domain.mx" required>
+								<label for="email">Correo corporativo</label>
+								<input type="email" id="email" name="email" class="form-control" placeholder="tunombre@empresa.mx" required>
 							</div>
 							<div class="form-group">
-								<label for="phone">Teléfono</label>
+								<label for="phone">Teléfono de Oficina a 10 digitos</label>
 								<input type="tel" id="phone" name="phone" class="form-control" placeholder="Teléfono" required> <!-- Not Auto Validated -->
+							</div>
+							<div class="form-group">
+								<label for="company_name">Nombre de empresa</label>
+								<input type="text" id="company_name" name="company_name" class="form-control" placeholder="Nombre de empresa" required>
 							</div>
 							<div class="form-group">
 								<label for="employees">Número de empleados de la empresa</label>
 								<input type="text" id="employees" name="employees" class="form-control" placeholder="" required>
+							</div>
+							<div class="form-group">
+								<label for="employees">Número de contrataciones al año</label>
+								<input type="text" id="hire_number" name="hire_number" class="form-control" placeholder="" required>
+							</div>
+							<div class="form-group">
+								<label for="company_name">Posición</label>
+								<input type="text" id="person_title" name="person_title" class="form-control" placeholder="Posición" required>
 							</div>
 							<div class="form-group">
 								<label for="hear">¿Cómo se enteró de nosotros?</label>
@@ -252,41 +239,14 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 								</select>
 							</div>
 							<div class="form-group">
-								<label for="company_name">Posición</label>
-								<input type="text" id="person_title" name="person_title" class="form-control" placeholder="Posición" required>
+								Elige el seminario en línea al que te quieres registrar (puedes elegir varias opciones):
 							</div>
 							<div class="form-group">
-								<label for="company_name">Nombre de empresa</label>
-								<input type="text" id="company_name" name="company_name" class="form-control" placeholder="Nombre de empresa" required>
+							<select data-placeholder="Elige el seminario..." name="webinar_id[]" class="chosen-select" multiple="multiple" style="width=100%">
+							  <option value="2305285921240175361">Prácticas de Reclutamiento y Selección</option>
+							  <option value="3876110904843731457">Reclutamiento en Redes Sociales</option>
+							</select>
 							</div>
-							<div class="form-group">
-								Elige el seminario en línea al que te quieres registrar (puedes elegir ambas opciones):
-							</div>
-							<div class="form-group">
-								<label for="recruitment">Prácticas de Reclutamiento y Selección</label>
-								<select class="form-control" name="recruitment">						
-									<option value=""></option>
-									<option value="1">Si</option>
-									<option value="0">No</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="social">Reclutamiento en Redes Sociales</label>
-								<select class="form-control" name="social">						
-									<option value=""></option>
-									<option value="1">Si</option>
-									<option value="0">No</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="social">Los retos de RRHH en los siguientes años</label>
-								<select class="form-control" name="rrhh">						
-									<option value=""></option>
-									<option value="1">Si</option>
-									<option value="0">No</option>
-								</select>
-							</div>
-
 							<div class="form-group">
 								<label for="website">¿Cuánto es 3 + 4?</label>
 								<input type="text" id="simple_math" name="simple_math" class="form-control" placeholder="" required>
@@ -306,10 +266,33 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 				</div>
 			</div> <!-- </section> -->
 
+<!-- chosen helps with the design of the dropdowns. -->
+<script src="js/chosen.jquery.js" type="text/javascript"></script> 
+  <script type="text/javascript">
+
+
+  	$(document).ready(function() {
+   $('.chosen-select').chosen();
+});
+
+    var config = {
+      '.chosen-select'           : {},
+      '.chosen-select-deselect'  : {allow_single_deselect:true},
+      '.chosen-select-no-single' : {disable_search_threshold:10},
+      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-width'     : {width:"95%"}
+    }
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+  </script>
 
 <?php
 include_once 'includes/footer.php';
 ?>
+
+
+
 
 
 
