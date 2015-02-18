@@ -53,7 +53,7 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 					<div style="width:280px;float:right;">
 					
 						<!-- Form -->
-						<form  style="background-color:#1acad4; margin:10px; margin-right:0px !important; padding:10px; border-radius: 10px; color:white; float:right;" method="POST" action="trial_thanks.php" enctype="multipart/form-data" >
+						<form  style="background-color:#1acad4; margin:10px; margin-right:0px !important; padding:10px; border-radius: 10px; color:white; float:right;" method="POST" action="trial_offer_thanks.php" enctype="multipart/form-data" >
 							<h2>Pruébelo gratis</h2>
 							<div class="form-group">
 								<label for="first_name">Nombre</label>

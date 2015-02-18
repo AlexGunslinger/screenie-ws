@@ -1,81 +1,73 @@
-<?php
-	
-	
-	if(!empty($_POST[email]) && ($_POST[simple_math] == 7)){
-		
-		$connectme = "yes";
-		include("includes/functions.php");
-
-		$first_name = $_POST['first_name']; // required
-    	$email_from = $_POST['email']; // required
-    	$phone = $_POST['phone'];
-   	 	$employees = $_POST['employees'];
-    	$website = $_POST['company_webpage'];
-   		$candidate = $_POST['candidate'];
-
-		
-		//Send mail to the person in the form
-			$subject = "Gracias por solicitar su periodo de prueba en Screenie";
-		
-			$message = "$_POST[first_name],
-
-			Gracias por solicitar su periodo de prueba gratis con Screenie.
-
-   			Estamos entusiasmados por saber más sobre las necesidades y metas de contratación de su empresa. En breve, uno de nuestros representantes se pondrá en contacto con usted por teléfono para empezar su periodo de prueba.
-    
-    		¡Le deseamos excelente día y esperamos hablar pronto!";
-
-			sendEmailFrom($email_from, "trialscreenie@noreplay.com", "Screenie", $subject, $message);
-
-
-		//Mail to Screenie	
-			$to      = 'ken@screenie.com';
-			$subject = "Someone has requested a free trial from the PPC landing page.";
-			$email_message .= "Here's the information:\n\n";
-	    
-	    	$email_message .= "Name: ".$first_name."\n\t";
-	 
-	    	$email_message .= "Email: ".$email_from."\n";
-	 
-	    	$email_message .= "Telephone: ".$phone."\n";
-
-	    	$email_message .= "Company web page: ".$website."\n";
-
-	    	$email_message .= "Number of jobs you hire each year: ".$employees."\n";
-
-	    	$email_message .= "Approximate number of candidates per position: ".$candidate."\n";
-
-			sendEmailFrom($to, "trialscreenie@noreplay.com", "Screenie", $subject, $email_message);
-
-			//$META_TITLE = 'Programe su periodo de prueba';
-			include_once 'includes/header.php';
-			$PAGE_TITLE = "Programe su periodo de prueba";
-			
-		
-
-		}
-		else
-		{
-		
-			header("location: landing_page.php");
-			exit;
-		
-		}
-		
-
+<?
+switch($_POST[request_type]){
+case "trial":
+$page_title = "You're setup";
+$email_subject = "Free Trial Requested";
+break;
+default:
+$page_title = "Thanks for your request.";
+//header("location: /");
+//exit;
+break;
+}
+if(!empty($_POST[email]) && ($_POST[simple_math] == 7)){
+$connectme = "yes";
+include("includes/cons.php");
+include("includes/functions.php");
+mysql_query("INSERT INTO `free_trials`
+(`id`,`request_type`,`name`,`email`,`phone`,`employees`,`hear`,are_you_a_candidate,`company_name`,`website`,`ip_address`,`dt`)
+VALUES
+(null,'$_POST[request_type]','$_POST[first_name] $_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[employees]','$_POST[hear]','$_POST[are_you_a_candidate]','$_POST[company_name]','$_POST[website]','" . $_SERVER['REMOTE_ADDR'] . "',NOW())");
+mysql_close($link);
+if($_POST[are_you_a_candidate] == 2){
+$are_you_a_candidate = "No";
+}else{
+$are_you_a_candidate = "Yes";
+}
+//Mail to Screenie
+$to = 'trent@screenie.com, perla@screenie.com';
+$subject = "Free Trial Request Mexico";
+$message = "Name: $_POST[first_name] $_POST[last_name] \n
+Email: $_POST[email] \n
+Phone: $_POST[phone] \n
+Number of Employees: $_POST[employees] \n
+How did you hear about us? $_POST[hear] \n
+Website: $_POST[website] \n
+Are you a candidate: $are_you_a_candidate \n";
+$headers = 'From: ' . $_POST[email] . "\r\n" .
+'Reply-To: support@screenie.com' . "\r\n" .
+'X-Mailer: PHP/' . phpversion();
+mail($to, $subject, $message, $headers);
+//Mail to New User
+$to = $_POST[email];
+$subject = "Welcome to Screenie";
+$message = "Hola $_POST[first_name],
+¡Bienvenido a Screenie!
+Un ejecutivo se pondrá en contacto contigo brevemente para proceder en la creación de tu cuenta.
+Contáctanos si tienes alguna pregunta sobre la plataforma.
+¡Gracias!
+El Equipo Screenie MX
+soporte@screenie.com";
+$headers = "From: soporte@screenie.com \r\n" .
+'Reply-To: soporte@screenie.com' . "\r\n" .
+'X-Mailer: PHP/' . phpversion();
+mail($to, $subject, $message, $headers);
+$trial_thanks_set = 1;
+$META_TITLE = 'Programe su periodo de prueba';
+// $META_DESCRIPTION = "Provide SEO friendly description here!";
+include_once 'includes/header.php';
+$PAGE_TITLE = "Programe su periodo de prueba";
+}else{
+header("location: free-trial.php");
+exit;
+}
 ?>
 <!-- Section -->
-			<div class="inner-center section">
-				<div>
-					
-					<h1><?=$PAGE_TITLE;?></h1>
-					<h2>Hemos enviado un correo de confirmación a (<?=$_POST[email];?>).  Revisa tu correo electrónico, incluyendo la carpeta de SPAM, para seguir en contacto.</h2>
-					
-					
-					</div>
-			</div> <!-- </section> -->
-
-
+<div class="inner-center section">
+<div>
+<h1>Hemos enviado un correo de confirmación a <?=$_POST[email];?></h1>
+<h2>¡Revisa tu correo y nos pondremos en contacto!</h2>
+</div>
+</div> <!-- </section> -->
 <?php
 include_once 'includes/footer.php';
-?>

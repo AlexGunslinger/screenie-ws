@@ -120,34 +120,64 @@
 		
 		}
 
-		//espacio para platica
-/*
-		if($id == 3876110904843731457) //retos
-		{
-
+		if($id == 1147514471015794690)
+		{ //platica planeacion estrategica
+			
+			$series_start="2015_03_03";
 			$webinar_description="RS_G3";
-			$subject = "Plática: Los retos de RRHH en los siguientes años - Screenie";
+			$subject = "Platica Planeación Estratégica de RRHH - Screenie";
 		
 			$message = "$_POST[first_name],
 		
-Gracias por registrarte para la plática 'Los retos de RRHH en los siguientes años.
+			Gracias por registrarte a la Platica Planeación Estratégica de RRHH. Tu registro es válido para el siguiente día:
 
-La plática se llevara a cabo el 6 de febrero del 2015 a las 10am, hora de la Cd. de México.
+			Martes 3 de marzo de 2015 
+			Horario: 10am
 
-Ingresa al seminario en linea en $join_url
+			Ingresa al seminario en linea en $join_url
 
-Te recordamos verificar los requerimientos del sistema para poder participar sin problemas. Y si tienes cualquier duda o requieres más información, puedes visitar la liga: http://bit.ly/1nrQIJx
+			Te recordamos verificar los requerimientos del sistema para poder participar sin problemas. Y si tienes cualquier duda o requieres más información, puedes visitar la liga: http://bit.ly/1nrQIJx
 
+			Gracias,
 
-Gracias,
-
-Brenda y el equipo de Screenie";
+			Brenda y el equipo de Screenie";
 
 
 			sendEmailFrom($to, "brenda@screenie.com", "Brenda Manjarrez", $subject, $message);
 		
 		}
-		*/
+
+			if($id == 4315276739890850817)
+		{ //insercion laboral
+			
+			$series_start="2015_02_27";
+			$webinar_description="RS_G3";
+			$subject = "Plática: Inserción laboral de las personas con discapacidad - Screenie";
+		
+			$message = "$_POST[first_name],
+		
+			Gracias por registrarte a la Plática: Inserción laboral de las personas con discapacidad. Tu registro es válido para el siguiente día:
+
+			Viernes 27 de febrero de 2015 
+			
+			Horario: 9:30am
+
+			Ingresa al seminario en linea en $join_url
+
+			Te recordamos verificar los requerimientos del sistema para poder participar sin problemas. Y si tienes cualquier duda o requieres más información, puedes visitar la liga: http://bit.ly/1nrQIJx
+
+			Gracias,
+
+			Brenda y el equipo de Screenie";
+
+
+			sendEmailFrom($to, "brenda@screenie.com", "Brenda Manjarrez", $subject, $message);
+		
+		}
+
+
+
+
 			mysql_query("INSERT INTO `webinar_signups` (`id`,`series_start`,`name`,`email`,`phone`,`employees`,`hear`,`person_title`,`company_name`,`website`,`ip_address`,`dt`,`webinar_id`,`hire_number`,`webinar_description`) VALUES (null,'".$series_start."','$_POST[first_name] $_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[employees]','$_POST[hear]','$_POST[person_title]','$_POST[company_name]','$_POST[website]','" . $_SERVER['REMOTE_ADDR'] ."','".$dt."','".$id."','$_POST[hire_number]','".$webinar_description."')");
 		} //end foreach 
 		// end register
