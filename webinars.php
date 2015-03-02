@@ -236,38 +236,6 @@ Líderes en Dirección de Personal.
 						<br /><br />
 						<!--end platica -->
 
-
-						<!-- platica -->
-						<h2 style="font-size:20px;"><u><strong>Plática: Inserción laboral de las personas con discapacidad</strong></u></h2>
-						
-						<p>Platica sobre cómo prepararnos para la inclusión laboral de las personas con discapacidad según lo establece la reforma del 2012 de la Ley Federal del Trabajo.</p>
-
-						<p>Poniente: por el José Alfonso Guerrero D.</p>
-
-						<p>José Alfonso Guerrero D. es actualmente Coordinador de Sustentabilidad de Grupo Proeza y colaborador de Movimiento Congruencia, una organización que busca la inserción laboral de las personas con discapacidad y preparar a las empresas para tener acceso a ese talento que puede estar siendo olvidado. </p>
-												
-						<h3 style="font-size:18px;"><u>Calendarización</u></h3>
-												
-						<table style="width:500px;">
-						
-							<tr style="border-top:1px solid #548dd4;">
-								<td colspan="2">&nbsp;</td>
-							</tr>
-						
-							<tr style="border-top:1px solid #548dd4;">
-								
-								<td style="width:250px; solid #548dd4;">
-									<p>Plática con José Alfonso Guerrero D.
-									<br />Viernes 27 de febrero de 2015
-									<br />9:30am</p>
-								</td>
-						
-							</tr>
-						
-						</table>
-						<label>* El evento está sujeto a cambio de horario debido a la agenda del ponente, en cuyo caso será notificado por correo electrónico.</label>
-						<br /><br />
-						<!--end platica -->
 						
 
 					</div>
@@ -330,7 +298,6 @@ Líderes en Dirección de Personal.
 							  <option value="2305285921240175361">Prácticas de Reclutamiento y Selección</option>
 							  <option value="3876110904843731457">Reclutamiento en Redes Sociales</option>
 							  <option value="1147514471015794690">Pl&aacute;tica: Planeación Estratégica de RRHH</option>
-							  <option value="4315276739890850817">Plática: Inserción laboral de las personas con discapacidad</option>
 							</select>
 							</div>
 							<div class="form-group">

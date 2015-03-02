@@ -4,6 +4,7 @@
 
 
 	include("citrix.php");
+	date_default_timezone_set("America/Monterrey");
 	$citrix = new Citrix('gzAWtNEXYm0ezvwFZqKIA93bk6sV8bmg');
 	$citrix->set_organizer_key('3925441588578560262'); 
 	$citrix->set_access_token('KODYDDNTWaQGR4DABq9I4vphFJwe');
@@ -43,10 +44,9 @@
 			//insert into participant
 
 			 // fecha webinar
-			
-			$dt= DATE('Y-d-m H:i:s');
-			
 
+			date_default_timezone_set('America/Monterrey');
+                   $today = date('Y-m-d H:i:s');
 
 			//send mails
 			if($id == 2305285921240175361)
@@ -124,7 +124,7 @@
 		{ //platica planeacion estrategica
 			
 			$series_start="2015_03_03";
-			$webinar_description="RS_G3";
+			$webinar_description="PE_G1";
 			$subject = "Platica Planeación Estratégica de RRHH - Screenie";
 		
 			$message = "$_POST[first_name],
@@ -151,7 +151,7 @@
 		{ //insercion laboral
 			
 			$series_start="2015_02_27";
-			$webinar_description="RS_G3";
+			$webinar_description="ID_G1";
 			$subject = "Plática: Inserción laboral de las personas con discapacidad - Screenie";
 		
 			$message = "$_POST[first_name],
@@ -160,7 +160,7 @@
 
 			Viernes 27 de febrero de 2015 
 			
-			Horario: 9:30am
+			Horario: 11:30am
 
 			Ingresa al seminario en linea en $join_url
 
@@ -175,10 +175,11 @@
 		
 		}
 
-
-
-
-			mysql_query("INSERT INTO `webinar_signups` (`id`,`series_start`,`name`,`email`,`phone`,`employees`,`hear`,`person_title`,`company_name`,`website`,`ip_address`,`dt`,`webinar_id`,`hire_number`,`webinar_description`) VALUES (null,'".$series_start."','$_POST[first_name] $_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[employees]','$_POST[hear]','$_POST[person_title]','$_POST[company_name]','$_POST[website]','" . $_SERVER['REMOTE_ADDR'] ."','".$dt."','".$id."','$_POST[hire_number]','".$webinar_description."')");
+			mysql_query("INSERT INTO `webinar_signups` (`id`,`series_start`,`name`,`email`,`phone`,`employees`,`hear`,
+				`person_title`,`company_name`,`website`,`ip_address`,`dt`,`webinar_id`,`hire_number`,`webinar_description`) 
+			VALUES (null,'".$series_start."','$_POST[first_name] $_POST[last_name]','$_POST[email]','$_POST[phone]','$_POST[employees]',
+				'$_POST[hear]','$_POST[person_title]','$_POST[company_name]','$_POST[website]','" . $_SERVER['REMOTE_ADDR'] ."','".$today."','".$id."','$_POST[hire_number]','".$webinar_description."')");
+			
 		} //end foreach 
 		// end register
 
