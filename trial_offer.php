@@ -57,15 +57,15 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 							<h2>Pruébelo gratis</h2>
 							<div class="form-group">
 								<label for="first_name">Nombre</label>
-								<input id="first_name" name="first_name" class="form-control" placeholder="Nombre" required="" autofocus="autofocus" type="text">
+								<input id="first_name" name="first_name" class="form-control" placeholder="Nombre y Apellido" required="" autofocus="autofocus" type="text">
 							</div>
 							<div class="form-group">
-								<label for="email">Correo electrónico</label>
-								<input id="email" name="email" class="form-control" placeholder="tumail@dominio.mx" required="" type="email">
+								<label for="email">Correo corporativo</label>
+								<input id="email" name="email" class="form-control" placeholder="Correo corporativo" required="" type="email">
 							</div>
 							<div class="form-group">
-								<label for="phone">Teléfono</label>
-								<input id="phone" name="phone" class="form-control" placeholder="(###) ###-####" required="" type="tel"> <!-- Not Auto Validated -->
+								<label for="phone">Teléfono a 10 dígitos</label>
+								<input id="phone" name="phone" class="form-control" placeholder="(##) ### ####" required="" type="tel"> <!-- Not Auto Validated -->
 							</div>
 							<div class="form-group">
 								<label for="employees">Número de contrataciones al año</label>
@@ -77,7 +77,7 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 							</div>
 							<div class="form-group">
 								<label for="company_webpage">Página Web de su empresa</label>
-								<input id="company_webpage" name="company_webpage" class="form-control" placeholder="www.empresa.com" required="" type="text">
+								<input id="company_webpage" name="company_webpage" class="form-control" placeholder="Escribe la página web de tu empresa" required="" type="text">
 							</div>
 							<div class="form-group">
 								<label for="website">¿Cuánto es 3 + 4?</label>

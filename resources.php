@@ -21,6 +21,7 @@ $PAGE_TITLE = "Recursos";
 					<li><a href="recursos/Video_Modulo_3_como_lo_evaluo.mov" target="_blank">Video Módulo 3 "Cómo lo evalúo" 20 de agosto 2014</a></li>
 					<li><a href="recursos/Modulo_4_Que_herramientas_uso.pdf" target="_blank">Presentación Módulo 4 "Que herramientas uso" 3 de septiembre 2014</a></li>
 					<li><a href="recursos/Video_Modulo_4_Que_herramientas_uso.mov" target="_blank">Video Módulo 4 "Que herramientas uso" 3 de septiembre 2014</a></li>
+					<li><a href="recursos/Evaluaciones_Mejores_Practicas_G4.pdf" target="_blank">Evaluaciones Mejores Pr&aacute;cticas de reclutamiento y selecci&oacute;n</a></li>	
 					</ol>
 
 					<h3>Reclutamiento en Redes Sociales</h3>
@@ -34,12 +35,19 @@ $PAGE_TITLE = "Recursos";
 					<li><a href="recursos/Video_Webinar_Reclutamiento_Redes_Sociales_Modulo_3_Facebook.mov" target="_blank">Video Webinar Reclutamiento Redes Sociales Módulo 3</a></li>
 					<li><a href="recursos/Seminario_Reclutamiento_Redes_Sociales_Modulo_4_Reclutamiento_2.pdf" target="_blank">Seminario Reclutamiento Redes Sociales Módulo 4 - Reclutamiento 2.0</a></li>
 					<li><a href="recursos/Video_Webinar_Reclutamiento_Redes_Sociales_Modulo_4.mov" target="_blank">Video Webinar Reclutamiento Redes Sociales Módulo 4</a></li>
+					<li><a href="recursos/Evaluaciones_Redes_Sociales_G2.pdf" target="_blank">Evaluaciones Redes Sociales</a></li>				
 					</ol>
 
 					<h3>Pl&aacute;tica: Los retos de RRHH en los pr&oacute;ximos a&ntilde;os</h3>
 					<ol>
 					<li><a href="recursos/Video_Platica_Los_retos_de_Recursos_Humanos_en_los_proximos_años.mov" target="_blank">Video: Pl&aacute;tica: Los retos de RRHH en los pr&oacute;ximos a&ntilde;os</a></li>
 					<li><a href="recursos/Retos_de_Recurso_Humanos_en_los_proximos.pptx" target="_blank">Presentaci&oacute;n: Pl&aacute;tica: Los retos de RRHH en los pr&oacute;ximos a&ntilde;os</a></li>
+					</ol>
+
+					<h3>Pl&aacute;tica: Planeaci&oacute;n Estrat&eacute;gica de RRHH</h3>
+					<ol>
+					<li><a href="recursos/Video_planeacion_estrategica_RRHH.mov" target="_blank">Video: Planeaci&oacute;n Estrat&eacute;gica de RRHH</a></li>
+					<li><a href="recursos/Vision_Estrategica_de_RRHH.pptx" target="_blank">Presentaci&oacute;n: Planeaci&oacute;n Estrat&eacute;gica de RRHH</a></li>
 					</ol>
 					
 

@@ -1,0 +1,5 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /certificates
+
+RewriteRule ^(.*)-(.*)\.jpg ../generate_certificate.php?h1=$1&h2=$2 [L]

@@ -184,57 +184,7 @@ $PAGE_TITLE = "Seminarios en Línea Gratuitos";
 					
 
 						<br />
-						<!-- platica -->
-						<h2 style="font-size:20px;"><u><strong>Plática: Planeación Estratégica de RRHH</strong></u></h2>
 						
-						<p>Aprende sobre la importancia de realizar una Planeación Estratégica de RRHH y los puntos a considerar al momento de su elaboración.</p>
-
-						<p>Plática por el Lic. Antonio Ramírez Moneda</p>
-
-						<p>Más de 30 años de experiencia en Recursos Humanos, incluyendo Dirección de 
-
-						RRHH en Grupo Moresa, Grupo Zapata Envases, Grupo Sigma Alimentos (Alfa) 
-
-						y Grupo Hylsamex (Alfa), y actualmente es Director de Recursos Humanos de 
-
-						Ternium México.</p>
-						<p> Conferencista en diplomados y cursos organizados por algunas de las mejores
-
-Universidades del país y expositor de diversos Congresos y Foros Nacionales e 
-
-Internacionales. Además.
-						</p>
-						<p>Fue Vicepresidente de empleadores de la Comisión del Hierro y Acero en la 
-
-Organización Internacional del Trabajo (OIT) en Suiza y también fue Presidente 
-
-de la ERIAC. Miembro actual de AMERIRH y del Grupo IPADE de Empresas 
-
-Líderes en Dirección de Personal.
-						</p>
-												
-						<h3 style="font-size:18px;"><u>Calendarización</u></h3>
-												
-						<table style="width:500px;">
-						
-							<tr style="border-top:1px solid #548dd4;">
-								<td colspan="2">&nbsp;</td>
-							</tr>
-						
-							<tr style="border-top:1px solid #548dd4;">
-								
-								<td style="width:250px; solid #548dd4;">
-									<p>Plática con José Antonio Ramirez Moneda
-									<br />3 de marzo de 2015
-									<br />10AM</p>
-								</td>
-						
-							</tr>
-						
-						</table>
-						<label>* El evento está sujeto a cambio de horario debido a la agenda del ponente, en cuyo caso será notificado por correo electrónico.</label>
-						<br /><br />
-						<!--end platica -->
 
 						
 
@@ -297,7 +247,6 @@ Líderes en Dirección de Personal.
 							<select data-placeholder="Elige el seminario..." name="webinar_id[]" class="chosen-select" multiple="multiple" style="width=100%">
 							  <option value="2305285921240175361">Prácticas de Reclutamiento y Selección</option>
 							  <option value="3876110904843731457">Reclutamiento en Redes Sociales</option>
-							  <option value="1147514471015794690">Pl&aacute;tica: Planeación Estratégica de RRHH</option>
 							</select>
 							</div>
 							<div class="form-group">

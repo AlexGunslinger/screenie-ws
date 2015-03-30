@@ -1,4 +1,12 @@
 <?
+
+
+$root=$_SERVER["DOCUMENT_ROOT"];
+
+	$connectme = "yes";
+		include($root."includes/cons.php");
+		include($root."includes/functions.php");
+
 switch($_POST[request_type]){
 case "trial":
 $page_title = "You're setup";
@@ -10,7 +18,9 @@ $page_title = "Thanks for your request.";
 //exit;
 break;
 }
-if(!empty($_POST[email]) && ($_POST[simple_math] == 7)){
+$phone=preg_replace('/\s+/', '', $_POST[phone]);
+if(!empty($_POST[email]) && ($_POST[simple_math] == 7) && (10==strlen($phone)))
+{ //if valid{
 $connectme = "yes";
 include("includes/cons.php");
 include("includes/functions.php");
@@ -25,19 +35,20 @@ $are_you_a_candidate = "No";
 $are_you_a_candidate = "Yes";
 }
 //Mail to Screenie
-$to = 'trent@screenie.com, perla@screenie.com';
+$to = 'lorena@screenie.com';
+//$to = 'trent@screenie.com, perla@screenie.com';
 $subject = "Free Trial Request Mexico";
 $message = "Name: $_POST[first_name] $_POST[last_name] \n
 Email: $_POST[email] \n
 Phone: $_POST[phone] \n
 Number of Employees: $_POST[employees] \n
 How did you hear about us? $_POST[hear] \n
-Website: $_POST[website] \n
-Are you a candidate: $are_you_a_candidate \n";
+Website: $_POST[website] \n";
 $headers = 'From: ' . $_POST[email] . "\r\n" .
 'Reply-To: support@screenie.com' . "\r\n" .
 'X-Mailer: PHP/' . phpversion();
-mail($to, $subject, $message, $headers);
+sendEmailFrom($to, "trials@screenie.com", "Free trial", $subject, $message);
+//mail($to, $subject, $message, $headers);
 //Mail to New User
 $to = $_POST[email];
 $subject = "Welcome to Screenie";
@@ -51,15 +62,19 @@ soporte@screenie.com";
 $headers = "From: soporte@screenie.com \r\n" .
 'Reply-To: soporte@screenie.com' . "\r\n" .
 'X-Mailer: PHP/' . phpversion();
-mail($to, $subject, $message, $headers);
+//mail($to, $subject, $message, $headers);
+sendEmailFrom($to, "soporte@screenie.com", "Programe su periodo de prueba", $subject, $message);
 $trial_thanks_set = 1;
 $META_TITLE = 'Programe su periodo de prueba';
 // $META_DESCRIPTION = "Provide SEO friendly description here!";
 include_once 'includes/header.php';
 $PAGE_TITLE = "Programe su periodo de prueba";
 }else{
-header("location: free-trial.php");
-exit;
+			if($_POST[simple_math] !== 7)
+				header("location: free-trial.php?wm=1");
+				if(10!==strlen($phone))
+				header("location: free-trial.php?wp=1");
+				exit;
 }
 ?>
 <!-- Section -->
@@ -69,26 +84,6 @@ exit;
 <h2>¡Revisa tu correo y nos pondremos en contacto!</h2>
 </div>
 </div> <!-- </section> -->
-
-<!-- Google Code for Sebo PPC English Demo Conversion Page -->
-<script type="text/javascript">
-/* <![CDATA[ */
-var google_conversion_id = 961666596;
-var google_conversion_language = "en";
-var google_conversion_format = "3";
-var google_conversion_color = "ffffff";
-var google_conversion_label = "L4jnCJPHq1YQpLzHygM";
-var google_remarketing_only = false;
-/* ]]> */
-</script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script>
-<noscript>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/961666596/?label=L4jnCJPHq1YQpLzHygM&amp;guid=ON&amp;script=0"/>
-</div>
-</noscript>
-<!-- </google code> -->
 
 <?php
 include_once 'includes/footer.php';
